@@ -1,0 +1,719 @@
+/* Новая нежная цветовая палитра */
+:root {
+    --color-soft-blue: #C9E2F2;    /* Нежный голубой */
+    --color-soft-pink: #F2D9E2;    /* Нежный розовый */
+    --color-soft-violet: #D4C9F2;  /* Нежный фиолетовый */
+
+    --color-deep-purple: #6B4D8F;  /* Глубокий фиолетовый (для текста и акцентов) */
+    --color-accent-pink: #FFB2F7;  /* Яркий розовый для отдельных акцентов (как в палитре) */
+    --color-accent-green: #E3FCB7; /* Неоновый зеленый для отдельных акцентов */
+
+
+    --color-text-dark: var(--color-deep-purple);
+    --color-text-light: #fff;
+    --color-background-light: #FAFAFA; /* Очень светлый фон */
+}
+
+/* Общие стили */
+body {
+    font-family: 'Nunito', sans-serif; /* Применяем новый шрифт */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-light);
+    overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Nunito', sans-serif; /* Шрифты для заголовков */
+    color: var(--color-deep-purple); /* Цвет заголовков */
+    line-height: 1.2;
+}
+
+a {
+    color: var(--color-soft-violet);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-deep-purple);
+    text-decoration: underline;
+}
+
+/* Кнопки */
+.button {
+    display: inline-block;
+    padding: 16px 35px; /* Увеличенный паддинг */
+    border-radius: 50px; /* Более округлые кнопки */
+    font-weight: 700; /* Жирный шрифт */
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    font-size: 17px; /* Чуть крупнее шрифт */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Мягкая тень */
+}
+
+.button.primary {
+    background-color: var(--color-soft-violet);
+    color: var(--color-text-light);
+    border: none;
+}
+
+.button.primary:hover {
+    background-color: var(--color-deep-purple); /* Темнее фиолетовый при наведении */
+    transform: translateY(-3px) scale(1.02); /* Более выраженный подъем */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--color-deep-purple);
+    border: 2px solid var(--color-deep-purple);
+}
+
+.button.secondary:hover {
+    background-color: var(--color-deep-purple);
+    color: var(--color-text-light);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Header */
+.main-header {
+    background-color: var(--color-background-light);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Более мягкая граница */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Чуть более выраженная тень */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Пробел между лого и текстом */
+}
+
+.main-header .logo img {
+    height: 60px; /* Логотип побольше */
+    transition: transform 0.3s ease-in-out;
+}
+
+.main-header .logo img:hover {
+    transform: rotate(5deg) scale(1.05); /* Легкое вращение и увеличение при наведении */
+}
+
+.main-header .logo h1 {
+    font-size: 32px; /* Название побольше */
+    margin: 0;
+    color: var(--color-deep-purple); /* Цвет названия */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 35px; /* Отступ между пунктами меню */
+}
+
+.main-nav ul li a {
+    font-weight: 600; /* Более жирный шрифт для меню */
+    color: var(--color-deep-purple);
+    position: relative;
+    padding-bottom: 5px; /* Для подчеркивания */
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* Более толстое подчеркивание */
+    background-color: var(--color-soft-violet);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 32px; /* Иконка гамбургера побольше */
+    color: var(--color-deep-purple);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.menu-toggle:hover {
+    transform: rotate(90deg); /* Вращение гамбургера */
+}
+
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-soft-blue) 0%, var(--color-soft-pink) 100%); /* Нежный градиент */
+    padding: 120px 0; /* Увеличили паддинг */
+    text-align: center;
+    color: var(--color-deep-purple);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-section::before,
+.hero-section::after { /* Эффект "пузырьков" на фоне */
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3; /* Чуть более выраженные */
+    background-color: var(--color-text-light);
+    animation: float 20s infinite ease-in-out;
+    z-index: 0;
+    filter: blur(15px); /* Более размытые */
+}
+
+.hero-section::before {
+    width: 180px; /* Крупнее */
+    height: 180px;
+    top: 15%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.hero-section::after {
+    width: 250px; /* Крупнее */
+    height: 250px;
+    bottom: 10%;
+    right: 12%;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(8deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(20px) rotate(-8deg); }
+}
+
+.hero-section .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px; /* Увеличили отступ */
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 64px; /* Крупнее заголовок */
+    margin-bottom: 30px;
+    color: var(--color-deep-purple);
+    animation: fadeInDown 1.2s ease-out; /* Чуть дольше анимация */
+}
+
+.hero-content p {
+    font-size: 22px; /* Крупнее подзаголовок */
+    max-width: 650px;
+    margin-bottom: 50px;
+    color: var(--color-deep-purple);
+    animation: fadeInUp 1.4s ease-out; /* Чуть дольше анимация */
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 25px; /* Увеличили отступ между кнопками */
+}
+
+/* Анимации для Hero секции */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); } /* Больше смещение */
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); } /* Больше смещение */
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Анимированный питомец (видео) */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px; /* Минимальная высота для видео */
+}
+.hero-pet-video {
+    max-width: 400px; /* Увеличен размер видео */
+    height: auto;
+    display: block;
+    border-radius: 30px; /* Более округлые края видео */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2); /* Более выраженная тень */
+    animation: simpleFloat 4s infinite ease-in-out; /* Более плавная анимация */
+}
+@keyframes simpleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); } /* Легкое покачивание и вращение */
+}
+
+
+/* --- Секция Features: АККОРДЕОН --- */
+.features-section {
+    padding: 80px 0; /* Стандартный паддинг сверху/снизу */
+    background-color: var(--color-background-light);
+    text-align: center;
+    min-height: auto; /* Высота не фиксирована, чтобы аккордеон мог расширяться */
+    overflow: visible; /* Разрешаем контенту выходить за пределы, если он расширяется */
+}
+
+.features-section .container {
+    max-width: 900px; /* Максимальная ширина для аккордеона */
+    padding: 0 20px;
+    display: flex; /* Flexbox для центрирования аккордеона */
+    flex-direction: column;
+    align-items: center; /* Центрируем аккордеон по горизонтали */
+}
+
+.features-section h2 {
+    font-size: 48px;
+    margin-top: 0; /* Убираем верхний margin, он будет от padding секции */
+    margin-bottom: 50px; /* Отступ под заголовком */
+    color: var(--color-deep-purple);
+    position: relative;
+    display: inline-block; /* Для выравнивания ::after */
+}
+
+.features-section h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color: var(--color-soft-violet);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    border-radius: 3px;
+}
+
+.accordion-grid {
+    display: flex;
+    flex-direction: column; /* Элементы аккордеона друг под другом */
+    gap: 20px; /* Отступ между элементами аккордеона */
+    width: 100%;
+}
+
+.accordion-item {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden; /* Скрываем выходящий контент при закрытии */
+    transition: all 0.4s ease-in-out;
+    border: 1px solid rgba(0,0,0,0.05); /* Легкая граница */
+    cursor: pointer;
+}
+
+.accordion-item:hover {
+    transform: translateY(-5px); /* Легкий подъем при наведении на элемент аккордеона */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 25px 30px; /* Паддинг для заголовка */
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: background-color 0.3s ease;
+    gap: 20px; /* Отступ между иконкой, текстом и стрелкой */
+}
+
+.accordion-item:nth-child(1) .accordion-header { background-color: var(--color-soft-blue); }
+.accordion-item:nth-child(2) .accordion-header { background-color: var(--color-soft-pink); }
+.accordion-item:nth-child(3) .accordion-header { background-color: var(--color-soft-violet); color: var(--color-text-light);}
+.accordion-item:nth-child(4) .accordion-header { background-color: var(--color-deep-purple); color: var(--color-text-light);}
+
+.accordion-header h3 {
+    margin: 0;
+    flex-grow: 1; /* Заголовок занимает все доступное место */
+    font-size: 28px;
+    font-weight: 700;
+    color: inherit; /* Цвет текста наследуется от родителя */
+}
+
+.accordion-header .icon-wrapper {
+    width: 60px; /* Размер иконки в заголовке */
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: var(--color-text-light); /* Цвет иконки */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Цвет фона иконок в зависимости от фона аккордеона */
+.accordion-item:nth-child(1) .icon-wrapper,
+.accordion-item:nth-child(2) .icon-wrapper {
+    background-color: var(--color-deep-purple); /* Темный фон для иконок на светлых карточках */
+}
+.accordion-item:nth-child(3) .icon-wrapper,
+.accordion-item:nth-child(4) .icon-wrapper {
+    background-color: rgba(255,255,255,0.2); /* Светлый полупрозрачный фон для иконок на темных карточках */
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+
+.accordion-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+    color: inherit; /* Цвет стрелки наследуется */
+}
+
+.accordion-icon.open {
+    transform: rotate(180deg); /* Поворот стрелки при открытии */
+}
+
+.accordion-content {
+    max-height: 0; /* Изначально скрыто */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    padding: 0 30px; /* Горизонтальный паддинг */
+    color: var(--color-text-dark); /* Цвет текста содержимого */
+}
+
+.accordion-content.open {
+    max-height: 200px; /* Максимальная высота при открытии (может быть auto, но тогда нет анимации) */
+    padding: 20px 30px 30px 30px; /* Паддинг при открытии */
+}
+
+.accordion-content p {
+    margin: 0; /* Убираем стандартные маргины у параграфа */
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* --- Галерея скриншотов (отдельная секция) --- */
+.screenshots-gallery {
+    padding: 80px 0;
+    background-color: var(--color-background-light);
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+}
+.screenshots-gallery h3 {
+    font-size: 38px;
+    margin-bottom: 40px;
+    color: var(--color-deep-purple);
+}
+.gallery-placeholder {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Увеличенный отступ */
+}
+.gallery-item {
+    max-width: 100%;
+    height: 420px; /* Чуть выше скриншоты */
+    width: auto;
+    object-fit: cover;
+    border-radius: 15px; /* Более округлые */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Более выраженная тень */
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), box-shadow 0.4s ease; /* Пружинящая анимация */
+}
+.gallery-item:hover {
+    transform: scale(1.05); /* Более выраженное увеличение */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* Team Section (адаптируем цвета и шрифты) */
+.team-section {
+    padding: 100px 0; /* Увеличенный паддинг */
+    background-color: var(--color-soft-blue); /* Нежный голубой фон для команды */
+    text-align: center;
+}
+.team-section h2 {
+    font-size: 48px;
+    margin-bottom: 60px;
+    color: var(--color-deep-purple);
+}
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+.member-card {
+    background-color: var(--color-background-light); /* Светлый фон карточек команды */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 250px; /* Чуть шире карточки */
+    text-align: center;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+.member-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+.member-card img {
+    width: 140px; /* Крупнее фото */
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--color-soft-violet); /* Нежная фиолетовая рамка */
+    transition: border-color 0.3s ease;
+}
+.member-card img:hover {
+    border-color: var(--color-deep-purple); /* Темнее рамка при наведении */
+}
+.member-card h3 {
+    margin-bottom: 10px;
+    color: var(--color-deep-purple);
+    font-size: 22px;
+    font-weight: 700;
+}
+.member-card p {
+    color: #555;
+    font-size: 16px;
+}
+.partners-logo h3 {
+    font-size: 38px;
+    margin-bottom: 35px;
+    color: var(--color-deep-purple);
+}
+.partner-placeholder img {
+    max-height: 90px; /* Крупнее логотипы */
+    filter: grayscale(60%);
+    opacity: 0.8;
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.3s ease;
+}
+.partner-placeholder img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: translateY(-8px) scale(1.1); /* Более выраженный эффект */
+}
+
+/* Contact Section (адаптируем цвета и шрифты) */
+.contact-section {
+    padding: 100px 0;
+    background-color: var(--color-soft-violet); /* Нежный фиолетовый фон */
+    color: var(--color-text-light);
+    text-align: center;
+}
+.contact-section h2 {
+    font-size: 48px;
+    margin-bottom: 35px;
+    color: var(--color-text-light);
+}
+.contact-section p {
+    font-size: 20px;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+}
+.subscribe-form input[type="email"] {
+    padding: 18px 28px; /* Увеличенный паддинг */
+    border-radius: 50px; /* Более округлый */
+    font-size: 18px;
+    width: 380px; /* Шире поле */
+    max-width: 90%;
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.1);
+}
+.subscribe-form input[type="email"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.4), inset 0 3px 10px rgba(0,0,0,0.1); /* Мягкое свечение */
+}
+.contact-section .button.secondary {
+    color: var(--color-text-light);
+    border-color: var(--color-text-light);
+}
+.contact-section .button.secondary:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-deep-purple); /* Цвет глубокого фиолетового при наведении */
+    transform: translateY(-3px);
+}
+
+/* Footer (адаптируем цвета) */
+.main-footer {
+    background-color: var(--color-deep-purple); /* Глубокий фиолетовый для футера */
+    color: var(--color-text-light);
+    padding: 35px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Модальное окно (без изменений, т.к. уже хорошо) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px; /* Чуть более округлые */
+    animation: zoomIn 0.3s ease-out;
+}
+.close-button {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: #f1f1f1;
+    font-size: 45px; /* Крупнее */
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    transform: rotate(90deg); /* Анимация при закрытии */
+}
+
+/* --- Анимации при появлении элементов (Intersection Observer) --- */
+/* Начальное состояние для элементов, которые будут анимироваться при скролле */
+.animated-card { /* Теперь это accordion-item */
+    opacity: 0;
+    transform: translateY(40px); /* Появление снизу вверх */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Состояние, когда элемент становится видимым */
+.animated-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .main-header .logo img { height: 50px; }
+    .main-header .logo h1 { font-size: 28px; }
+    .main-nav ul li { margin-left: 25px; }
+
+    .hero-section { padding: 80px 0; }
+    .hero-section .container { flex-direction: column; gap: 40px; }
+    .hero-content { text-align: center; }
+    .hero-content h1 { font-size: 48px; }
+    .hero-content p { font-size: 18px; }
+    .hero-buttons { justify-content: center; gap: 20px; }
+    .hero-pet-video { max-width: 300px; }
+    .hero-section::before, .hero-section::after { display: none; }
+
+    .features-section { padding: 60px 0; }
+    .features-section h2 { font-size: 40px; margin-top: 20px; margin-bottom: 30px; }
+
+    .accordion-header { padding: 20px 25px; gap: 15px; }
+    .accordion-header h3 { font-size: 24px; }
+    .accordion-header .icon-wrapper { width: 50px; height: 50px; font-size: 28px; }
+    .accordion-content { padding: 15px 25px 25px 25px; }
+    .accordion-content p { font-size: 16px; }
+
+    .screenshots-gallery h3 { font-size: 32px; }
+    .gallery-item { height: 350px; }
+
+    .team-section { padding: 80px 0; }
+    .team-section h2 { font-size: 40px; margin-bottom: 40px; }
+    .member-card { width: 220px; padding: 25px; }
+    .member-card img { width: 120px; height: 120px; }
+
+    .contact-section { padding: 80px 0; }
+    .contact-section h2 { font-size: 40px; }
+    .contact-section p { font-size: 18px; }
+    .subscribe-form input[type="email"] { width: 300px; }
+}
+
+@media (max-width: 768px) {
+    .main-header .container { flex-direction: row; justify-content: space-between; }
+    .main-nav {
+        display: none; position: absolute; top: 80px; left: 0; width: 100%;
+        background-color: var(--color-background-light); box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        flex-direction: column; padding: 20px 0; text-align: center;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        transform: translateY(-100%); opacity: 0;
+    }
+    .main-nav.active { display: flex; transform: translateY(0); opacity: 1; }
+    .main-nav ul { flex-direction: column; width: 100%; }
+    .main-nav ul li { margin: 10px 0; }
+    .menu-toggle { display: block; }
+
+    .hero-section { padding: 60px 0; }
+    .hero-content h1 { font-size: 36px; }
+    .hero-content p { font-size: 16px; }
+    .hero-buttons { flex-direction: column; gap: 15px; }
+    .button { width: 100%; max-width: 280px; margin: 0 auto; padding: 14px 25px; font-size: 16px; }
+
+    .features-section { padding: 40px 0; }
+    .features-section h2 { font-size: 32px; margin-top: 15px; margin-bottom: 25px; }
+    .accordion-header { padding: 15px 20px; gap: 10px; }
+    .accordion-header h3 { font-size: 20px; }
+    .accordion-header .icon-wrapper { width: 40px; height: 40px; font-size: 22px; }
+    .accordion-content { padding: 10px 20px 20px 20px; }
+    .accordion-content p { font-size: 15px; }
+
+    .screenshots-gallery h3 { font-size: 28px; }
+    .gallery-item { height: 300px; border-radius: 10px; }
+
+    .team-section { padding: 60px 0; }
+    .team-section h2 { font-size: 32px; margin-bottom: 30px; }
+    .member-card { width: 180px; padding: 20px; }
+    .member-card img { width: 100px; height: 100px; border-width: 4px; }
+    .member-card h3 { font-size: 18px; }
+    .member-card p { font-size: 14px; }
+    .partners-logo h3 { font-size: 28px; margin-bottom: 25px; }
+
+    .contact-section { padding: 60px 0; }
+    .contact-section h2 { font-size: 32px; }
+    .contact-section p { font-size: 16px; margin-bottom: 30px; }
+    .subscribe-form input[type="email"] { width: 100%; max-width: 280px; padding: 15px 20px; font-size: 16px; }
+}
