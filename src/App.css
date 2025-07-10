@@ -1032,7 +1032,6 @@ copyright,
 /* ===== Адаптив ===== */
 @media(max-width:600px){
     .subscribe-row{flex-direction:column;align-items:flex-start;}
-    .subscribe-form{width:100%;}
     .subscribe-form input{flex:1;}
 }
 /* 1. Call-to-action «Откройте свои эмоции…»
@@ -1043,7 +1042,7 @@ copyright,
 /* мобильные ≤ 640 px: меньше шрифт + уже коробка */
 @media (max-width:640px){
     .cta-section{                 /* ваш сиреневый блок */
-        max-width: 92%;             /* вместо 100% */
+        max-width: 72%;             /* вместо 100% */
         margin-inline: auto;        /* центрируем */
         padding: 36px 24px;         /* компактнее отступы */
     }
@@ -1064,8 +1063,6 @@ copyright,
    ──────────────────────────── */
 
 @media (max-width:640px){
-    .contact-section{ padding: 64px 0; }   /* чуть ниже */
-
     .subscribe-form{
         flex-direction: column;     /* инпут над кнопкой */
         align-items: stretch;
@@ -1104,4 +1101,56 @@ copyright,
     }
     /* (необязательно) скрыть полоску в Chrome */
     .grid::-webkit-scrollbar{display:none;}
+}
+@media(max-width:640px){
+    .grid .card{
+        margin:0 auto;       /* горизонтально по центру */
+        width:90%;           /* чуть уже экрана */
+        max-width:340px;     /* не растягивается слишком */
+    }
+}
+/* иконка-бургер: три полосы через псевдо-элементы */
+.menu-toggle{
+    width:44px;height:44px;position:relative;
+    border:2px solid var(--color-accent-pink);
+    border-radius:8px;background:#fff;cursor:pointer;
+    z-index:1000;                 /* поверх навигации */
+}
+.menu-toggle span,
+.menu-toggle::before,
+.menu-toggle::after{
+    content:'';
+    position:absolute;left:8px;right:8px;
+    height:3px;border-radius:3px;
+    background:var(--color-text-dark);
+    transition:.3s;
+}
+.menu-toggle span{ top:50%;translate:0 -50%; }
+.menu-toggle::before{ top:12px; }
+.menu-toggle::after { bottom:12px; }
+
+/* анимация в крестик */
+.menu-toggle.active span      { opacity:0; }
+.menu-toggle.active::before   { top:50%; translate:0 -50% rotate(45deg); }
+.menu-toggle.active::after    { bottom:auto; top:50%; translate:0 -50% rotate(-45deg); }
+
+/* скрываем бургер на десктопе */
+@media (min-width:769px){ .menu-toggle{ display:none; } }
+/* универсально */
+.cta-banner{
+    max-width:900px;              /* ограничили ширину */
+    margin:32px auto;
+    padding:40px 24px;
+    border-radius:24px;
+}
+
+/* ≤ 640 px — ещё компактней */
+@media(max-width:640px){
+    .cta-banner{
+        margin:24px 16px;
+        padding:32px 20px;
+    }
+    .cta-banner h2{ font-size:28px; }
+    .cta-banner p { font-size:16px; max-width:30ch; margin:auto; }
+    .cta-banner .buttons{ flex-direction:column; gap:16px; }
 }
