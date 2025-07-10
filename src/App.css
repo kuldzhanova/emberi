@@ -1035,3 +1035,73 @@ copyright,
     .subscribe-form{width:100%;}
     .subscribe-form input{flex:1;}
 }
+/* 1. Call-to-action «Откройте свои эмоции…»
+   ───────────────────────────────────────── */
+
+/* десктоп оставляем как есть */
+
+/* мобильные ≤ 640 px: меньше шрифт + уже коробка */
+@media (max-width:640px){
+    .cta-section{                 /* ваш сиреневый блок */
+        max-width: 92%;             /* вместо 100% */
+        margin-inline: auto;        /* центрируем */
+        padding: 36px 24px;         /* компактнее отступы */
+    }
+    .cta-section h2{              /* заголовок */
+        font-size: 26px;
+        line-height: 1.25;
+    }
+    .cta-section p{               /* подзаголовок */
+        font-size: 15px;
+    }
+    .cta-buttons{                 /* две кнопки в столбик */
+        flex-direction: column;
+        gap: 14px;
+    }
+}
+
+/* 2. Подписка (контакт-секция)
+   ──────────────────────────── */
+
+@media (max-width:640px){
+    .contact-section{ padding: 64px 0; }   /* чуть ниже */
+
+    .subscribe-form{
+        flex-direction: column;     /* инпут над кнопкой */
+        align-items: stretch;
+        gap: 14px;
+        max-width: 320px;
+        margin-inline: auto;
+    }
+    .subscribe-form input{
+        width: 100%;
+        font-size: 16px;
+    }
+    .subscribe-form .button{
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+/* 3. Убрать футер на мобильных (при желании)
+   ────────────────────────────────────────── */
+@media (max-width:640px){
+    .main-footer{ display:none; }
+}
+@media (max-width:640px){
+    .grid{
+        display:flex;                  /* вместо grid */
+        overflow-x:auto;               /* горизонтальный скролл */
+        gap:16px;
+        scroll-snap-type:x mandatory;  /* «щёлки» */
+        -webkit-overflow-scrolling:touch; /* плавность на iOS */
+        padding-bottom:8px;            /* место под полосу прокрутки */
+    }
+    .card{
+        flex:0 0 260px;                /* фикс. ширина карточки */
+        scroll-snap-align:start;       /* пристыковка влево */
+        border-radius:20px;
+    }
+    /* (необязательно) скрыть полоску в Chrome */
+    .grid::-webkit-scrollbar{display:none;}
+}
