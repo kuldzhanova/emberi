@@ -38,22 +38,22 @@ export default function ScreenshotsCarousel({ openModal }) {
                         <img
                             src="../../public/image/screenshot1.jpg"
                             alt="UI 1"
-                            onClick={() => openModal('../images/screenshot4.jpg')}
+                            onClick={() => openModal('../../public/image/screenshot1.jpg')}
                         />
                     </SwiperSlide>
 
                     <SwiperSlide className="ui-slide">
                         <img
-                            src="../../public/image/screenshot2.jpq"
+                            src="../../public/image/screenshot2.jpg"
                             alt="UI 2"
-                            onClick={() => openModal('../images/screenshot4.jpg')}
+                            onClick={() => openModal('../../public/image/screenshot2.jpg')}
                         />
                     </SwiperSlide>
                     <SwiperSlide className="ui-slide">
                         <img
                             src="../../public/image/screenshot3.jpg"
                             alt="UI 2"
-                            onClick={() => openModal('../images/screenshot4.jpg')}
+                            onClick={() => openModal('../../public/image/screenshot3.jpg')}
                         />
                     </SwiperSlide>
 
@@ -61,7 +61,7 @@ export default function ScreenshotsCarousel({ openModal }) {
                         <img
                             src="../../public/image/screenshot4.jpg"
                             alt="UI 3"
-                            onClick={() => openModal('../images/screenshot4.jpg')}
+                            onClick={() => openModal('../../public/image/screenshot4.jpg')}
                         />
                     </SwiperSlide>
 
@@ -69,7 +69,7 @@ export default function ScreenshotsCarousel({ openModal }) {
                         <img
                             src="../../public/image/screenshot3.jpg"
                             alt="UI 4"
-                            onClick={() => openModal('/images/screenshots/screen-4_big.jpg')}
+                            onClick={() => openModal('../../public/image/screenshot4.jpg')}
                         />
                     </SwiperSlide>
                 </Swiper>

@@ -995,6 +995,40 @@ a:hover {
 .subscribe-form button:hover{
     background: rgba(34, 0, 255, 0.9);
 }
+.subscribe-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap; /* чтобы не вылезало за экран */
+    align-items: center; /* выравнивание по высоте */
+}
+
+.subscribe-form input {
+    padding: 12px 16px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    min-width: 240px;
+    font-size: 15px;
+    height: 48px; /* добавим фиксированную высоту */
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.subscribe-form button {
+    padding: 12px 22px;
+    border: 1px solid #3a3a3a;
+    background: #3a3a3a;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.25s;
+    height: 48px; /* такая же высота, как у input */
+    white-space: nowrap;
+}
+
+.subscribe-form button:hover {
+    background: rgba(34, 0, 255, 0.9);
+}
 
 /* ===== Links grid ===== */
 .links-grid{
@@ -1133,7 +1167,6 @@ copyright,
 .menu-toggle.active span      { opacity:0; }
 .menu-toggle.active::before   { top:50%; translate:0 -50% rotate(45deg); }
 .menu-toggle.active::after    { bottom:auto; top:50%; translate:0 -50% rotate(-45deg); }
-
 
 @media (max-width:768px){
     .menu-toggle,
