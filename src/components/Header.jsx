@@ -25,7 +25,7 @@ export default function Header() {
                 <nav className={`main-nav${open ? ' active' : ''}`}>
                     <ul onClick={() => setOpen(false)}>
                         <li><a href="#features">Особенности</a></li>
-                        <li><a href="#screenshots">Скриншоты</a></li>
+                        <li><a href="#screenshots">О приложении</a></li>
                         <li><a href="#team">Команда</a></li>
                         <li><a href="#contact">Контакты</a></li>
                     </ul>
