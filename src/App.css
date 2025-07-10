@@ -1134,23 +1134,33 @@ copyright,
 .menu-toggle.active::before   { top:50%; translate:0 -50% rotate(45deg); }
 .menu-toggle.active::after    { bottom:auto; top:50%; translate:0 -50% rotate(-45deg); }
 
-/* скрываем бургер на десктопе */
-@media (min-width:769px){ .menu-toggle{ display:none; } }
-/* универсально */
-.cta-banner{
-    max-width:900px;              /* ограничили ширину */
-    margin:32px auto;
-    padding:40px 24px;
-    border-radius:24px;
+
+@media (max-width:768px){
+    .menu-toggle,
+    .main-nav{ display:none !important; }
+}
+/* ваш исходный hover-эффект (остаётся как был) */
+.testimonials-grid .card{
+    transition: transform .35s cubic-bezier(.22,1,.36,1),
+    box-shadow .35s;
+}
+.testimonials-grid .card:hover{
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,0,0,.14);
 }
 
-/* ≤ 640 px — ещё компактней */
-@media(max-width:640px){
-    .cta-banner{
-        margin:24px 16px;
-        padding:32px 20px;
+/* перебиваем ТОЛЬКО на мобильных ≤ 768 px */
+@media (max-width:768px){
+    .testimonials-grid .card{
+        transition:none;                /* убираем плавность */
     }
-    .cta-banner h2{ font-size:28px; }
-    .cta-banner p { font-size:16px; max-width:30ch; margin:auto; }
-    .cta-banner .buttons{ flex-direction:column; gap:16px; }
+    .testimonials-grid .card:hover{
+        transform:none;                 /* отменяем движение */
+        box-shadow:0 8px 24px rgba(0,0,0,.08); /* базовая тень */
+    }
+}
+@media (max-width:640px){
+    .cta-bar{          /* или .cta-section / .cta-banner — как в разметке */
+        border-radius:0 !important;
+    }
 }

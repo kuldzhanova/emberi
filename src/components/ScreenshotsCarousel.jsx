@@ -36,38 +36,38 @@ export default function ScreenshotsCarousel({ openModal }) {
                     {/* просто четыре слайда подряд */}
                     <SwiperSlide className="ui-slide">
                         <img
-                            src="/src/images/screenshot4.jpg"
+                            src="../../public/image/screenshot1.jpg"
                             alt="UI 1"
-                            onClick={() => openModal('/images/screenshots/screen-1_big.jpg')}
+                            onClick={() => openModal('../images/screenshot4.jpg')}
                         />
                     </SwiperSlide>
 
                     <SwiperSlide className="ui-slide">
                         <img
-                            src="/src/images/screenshot1.jpg"
+                            src="../../public/image/screenshot2.jpq"
                             alt="UI 2"
-                            onClick={() => openModal('/images/screenshots/screen-2_big.jpg')}
+                            onClick={() => openModal('../images/screenshot4.jpg')}
                         />
                     </SwiperSlide>
                     <SwiperSlide className="ui-slide">
                         <img
-                            src="/src/images/screenshot1.jpg"
+                            src="../../public/image/screenshot3.jpg"
                             alt="UI 2"
-                            onClick={() => openModal('/images/screenshots/screen-2_big.jpg')}
+                            onClick={() => openModal('../images/screenshot4.jpg')}
                         />
                     </SwiperSlide>
 
                     <SwiperSlide className="ui-slide">
                         <img
-                            src="/src/images/screenshot2.jpq"
+                            src="../../public/image/screenshot4.jpg"
                             alt="UI 3"
-                            onClick={() => openModal('/images/screenshots/screen-3_big.jpg')}
+                            onClick={() => openModal('../images/screenshot4.jpg')}
                         />
                     </SwiperSlide>
 
                     <SwiperSlide className="ui-slide">
                         <img
-                            src="/src/images/screenshot3.jpg"
+                            src="../../public/image/screenshot3.jpg"
                             alt="UI 4"
                             onClick={() => openModal('/images/screenshots/screen-4_big.jpg')}
                         />

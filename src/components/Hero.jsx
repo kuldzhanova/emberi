@@ -22,7 +22,7 @@ const Hero = () => {
                         muted       // Обязательно отключаем звук, иначе браузеры могут блокировать autoplay
                         playsInline // Улучшает воспроизведение на мобильных устройствах
                         preload="auto" // Начинает загрузку видео сразу
-                        poster="/src/images/emberi-logo.jpeg" // Необязательно: изображение, которое отобразится до загрузки видео
+                        poster="/src/components/images/emberi-logo.jpeg" // Необязательно: изображение, которое отобразится до загрузки видео
                     >
                         {/* Укажите путь к вашему MP4 файлу */}
                         <source src="/videos/emberi-pet-animation.mp4" type="video/mp4" />
