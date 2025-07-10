@@ -6,10 +6,15 @@ import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
+import TestimonialsCarousel from './components/TestimonialsCarousel';
+import useFadeUp from './components/useFadeUp.jsx';
+import CallToAction from "./components/CallToAction.jsx";
 
 import './App.css'; // Или './App.css'
 
+
 function App() {
+    useFadeUp();
     const [modalImageUrl, setModalImageUrl] = useState(null);
 
     const openModal = (url) => {
@@ -27,12 +32,18 @@ function App() {
                 <Hero />
                 <Features openModal={openModal} /> {/* Features теперь включает в себя галерею скриншотов внутри себя */}
                 <Team />
-                <Contact />
+                <TestimonialsCarousel />
+                <CallToAction onSubscribe={()=>setOpen(true)} />
             </main>
             <Footer />
-            <Modal imageUrl={modalImageUrl} onClose={closeModal} />
+            {modalImageUrl && (                /* условный рендер */
+                <Modal onClose={closeModal}>
+                    <img src={modalImageUrl} alt="UI screenshot enlarged" />
+                </Modal>
+            )}
         </div>
     );
 }
+
 
 export default App;

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../App.css'; // Или '../index.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import ScreenshotsCarousel from '../components/ScreenshotsCarousel.jsx';
 
 const Features = ({ openModal }) => {
     // Состояние для активного элемента аккордеона
@@ -70,7 +71,7 @@ const Features = ({ openModal }) => {
     return (
         <>
             <section id="features" className="features-section">
-                <div className="container">
+                <div className="container fade-up">
                     <h2>Ключевые особенности Emberi</h2>
                     <div className="accordion-grid">
                         {features.map((feature, index) => (
@@ -87,13 +88,16 @@ const Features = ({ openModal }) => {
                                     className="accordion-header"
                                     onClick={() => handleAccordionToggle(index)}
                                     aria-expanded={activeIndex === index}
-                                >
-                                    <div className="icon-wrapper" style={{ backgroundColor: (index === 2 || index === 3) ? 'rgba(255,255,255,0.2)' : 'var(--color-deep-purple)' }}> {/* Изменяем фон иконки в зависимости от фона карточки */}
-                                        <i className={feature.iconClass}></i>
-                                    </div>
-                                    <h3>{feature.title}</h3>
-                                    <i className={`fas fa-chevron-down accordion-icon ${activeIndex === index ? 'open' : ''}`}></i>
+                                                                          >
+                                         <span className="icon-wrapper">
+                                         <i className={feature.iconClass}/>
+                                         </span>
+
+                                    <span className="title-wrapper">{feature.title}</span>
+
+                                    <i className={`fas fa-chevron-down accordion-icon ${activeIndex === index ? 'open' : ''}`}/>
                                 </button>
+
                                 <div className={`accordion-content ${activeIndex === index ? 'open' : ''}`}>
                                     <p>{feature.description}</p>
                                 </div>
@@ -102,41 +106,9 @@ const Features = ({ openModal }) => {
                     </div>
                 </div>
             </section>
-
-            {/* Галерея скриншотов остается отдельной секцией */}
-            <section id="screenshots" className="screenshots-gallery">
-                <div className="container">
-                    <h3>Посмотрите, как это выглядит!</h3>
-                    <div className="gallery-placeholder">
-                        <img
-                            src="/images/screenshots/screenshot1.jpg"
-                            data-full-src="/images/screenshots/screenshot1_large.jpg"
-                            alt="UI Screenshot 1"
-                            className="gallery-item"
-                            onClick={(e) => openModal(e.target.dataset.fullSrc)}
-                            ref={el => galleryItemRefs.current[0] = el}
-                        />
-                        <img
-                            src="/images/screenshots/screenshot2.jpg"
-                            data-full-src="/images/screenshots/screenshot2_large.jpg"
-                            alt="UI Screenshot 2"
-                            className="gallery-item"
-                            onClick={(e) => openModal(e.target.dataset.fullSrc)}
-                            ref={el => galleryItemRefs.current[1] = el}
-                        />
-                        <img
-                            src="/images/screenshots/screenshot3.jpg"
-                            data-full-src="/images/screenshots/screenshot3_large.jpg"
-                            alt="UI Screenshot 3"
-                            className="gallery-item"
-                            onClick={(e) => openModal(e.target.dataset.fullSrc)}
-                            ref={el => galleryItemRefs.current[2] = el}
-                        />
-                    </div>
-                </div>
-            </section>
+            <ScreenshotsCarousel openModal={openModal} />
         </>
     );
-};
+}
 
 export default Features;

@@ -1,30 +1,42 @@
-import React from 'react';
-import '../App.css'; // Или '../App.css'
+// src/components/ContactSection.jsx
+import React, { useState } from 'react';
+import Modal from './Modal';
 
-const Contact = () => {
-    // В реальном приложении здесь будет логика обработки формы (отправка на сервер)
+export default function ContactSection() {
+    const [open, setOpen] = useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Спасибо за подписку! Мы свяжемся с вами.'); // Заглушка
-        // Здесь вы можете интегрировать Formspree, Netlify Forms или свой API
+        /* TODO: отправить email */
+        setOpen(false);
     };
 
     return (
-        <section id="contact" className="contact-section">
-            <div className="container">
-                <h2>Оставайтесь на связи с Emberi</h2>
-                <div className="contact-content">
-                    <p>Подпишитесь на нашу рассылку, чтобы первыми узнавать о новостях проекта и запуске приложения.</p>
-                    <form className="subscribe-form" onSubmit={handleSubmit}>
-                        <input type="email" placeholder="Ваш email" required />
-                        <button type="submit" className="button primary">Подписаться</button>
-                    </form>
-                    <p>Есть вопросы или предложения? Свяжитесь с нами напрямую:</p>
-                    <a href="mailto:your.email@example.com" className="button secondary">Связаться с нами</a>
-                </div>
-            </div>
-        </section>
-    );
-};
+        <>
+            <section id="contact" className="contact-section">
+                <div className="container fade-up">
+                    <h2>Всегда на связи с Emberi</h2>
+                    <p>Подпишитесь, чтобы узнать о запуске первым.</p>
 
-export default Contact;
+                    <button className="button subscribe-btn" onClick={() => setOpen(true)}>
+                        Подписаться
+                    </button>
+                </div>
+            </section>
+
+            {/* модал рендерится ТОЛЬКО когда open === true */}
+            {open && (
+                <Modal onClose={() => setOpen(false)}>
+                    <form className="subscribe-modal" onSubmit={handleSubmit}>
+                        <h3>Будьте в курсе!</h3>
+
+                        <input type="email" required placeholder="Ваш e-mail" autoFocus />
+                        <button type="submit" className="button primary send-btn">
+                            Отправить
+                        </button>
+                    </form>
+                </Modal>
+            )}
+        </>
+    );
+}

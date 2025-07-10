@@ -5,15 +5,15 @@ const Hero = () => {
     return (
         <section id="hero" className="hero-section">
             <div className="container">
-                <div className="hero-content">
+                <div className="hero-content fade-up">
                     <h1>Ваш путь к ментальной гармонии с Emberi</h1>
                     <p>Инновационное приложение для отслеживания эмоций, личного дневника и уникальных медитаций с AI-питомцем.</p>
                     <div className="hero-buttons">
-                        <a href="#features" className="button primary animated-button">Узнать больше</a>
+                        <a href="#features" className="button secondary animated-button">Узнать больше</a>
                         <a href="#" className="button secondary animated-button">Вакансии в команду</a>
                     </div>
                 </div>
-                <div className="hero-image">
+                <div className="hero-image fade-up">
                     {/* Используем HTML5 video tag для воспроизведения вашего видео */}
                     <video
                         className="hero-pet-video" // Класс для стилизации (добавим в CSS)

@@ -32,7 +32,7 @@ const Team = () => {
         <section id="team" className="team-section">
             <div className="container">
                 <h2>Наша команда</h2>
-                <div className="team-members">
+                <div className="team-members fade-up">
                     <div className="member-card" ref={el => memberCardRefs.current[0] = el}>
                         <img src="https://via.placeholder.com/150/8BA2FF/FFFFFF?text=Team+Member+1" alt="Фото члена команды" />
                         <h3>Имя Фамилия 1</h3>

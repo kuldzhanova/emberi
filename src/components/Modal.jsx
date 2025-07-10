@@ -1,15 +1,27 @@
+// src/components/Modal.jsx
 import React from 'react';
 import '../App.css';
 
-const Modal = ({ imageUrl, onClose }) => {
-    if (!imageUrl) return null; // Не рендерить, если нет изображения
-
+export default function Modal({ children, onClose }) {
     return (
-        <div className="modal" style={{ display: imageUrl ? 'flex' : 'none' }} onClick={onClose}>
-            <span className="close-button" onClick={onClose}>&times;</span>
-            <img className="modal-content" src={imageUrl} alt="Full size" onClick={e => e.stopPropagation()} />
+        <div className="modal" onClick={onClose}>
+            <div
+                className="modal-content"
+                onClick={e => e.stopPropagation()}   /* клик внутри — не закрывать */
+            >
+                {/* ← 1. КРЕСТИК */}
+                <button
+                    className="close-button"
+                    aria-label="Закрыть окно"
+                    onClick={onClose}
+                >
+                    ×
+                </button>
+
+                {/* 2. Ваши children (форма / картинка) */}
+                {children}
+            </div>
         </div>
     );
-};
+}
 
-export default Modal;
